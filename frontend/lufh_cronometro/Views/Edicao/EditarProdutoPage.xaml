@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp.Views.Edicao.EditarProdutoPage"
+             Title="Editar Produto"
+             BackgroundColor="#F5F5F5">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <!-- Header -->
+            <Frame Padding="20" 
+                   CornerRadius="10" 
+                   BackgroundColor="White"
+                   HasShadow="True">
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="✏️ Editar Produto"
+                           FontSize="24"
+                           FontAttributes="Bold"
+                           TextColor="#FF9800"/>
+                    <Label Text="Atualize os dados do produto"
+                           FontSize="14"
+                           TextColor="#666"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Formulário -->
+            <Frame Padding="20" 
+                   CornerRadius="10" 
+                   BackgroundColor="White"
+                   HasShadow="True">
+                
+                <VerticalStackLayout Spacing="15">
+
+                    <!-- ID -->
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="ID" 
+                               FontSize="14" 
+                               TextColor="#999"
+                               FontAttributes="Bold"/>
+                        <Label x:Name="IdLabel"
+                               Text="-"
+                               FontSize="16"
+                               TextColor="#333"/>
+                    </VerticalStackLayout>
+
+                    <BoxView HeightRequest="1" BackgroundColor="#E0E0E0"/>
+
+                    <!-- Nome -->
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Nome do Produto *" 
+                               FontSize="14" 
+                               TextColor="#333"
+                               FontAttributes="Bold"/>
+                        <Entry x:Name="NomeEntry"
+                               Placeholder="Ex: Sistema de Vendas"
+                               TextColor="#333"
+                               BackgroundColor="#F8F8F8"/>
+                    </VerticalStackLayout>
+
+                    <!-- Descrição -->
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Descrição" 
+                               FontSize="14" 
+                               TextColor="#333"
+                               FontAttributes="Bold"/>
+                        <Editor x:Name="DescricaoEditor"
+                                Placeholder="Descreva o produto..."
+                                HeightRequest="100"
+                                TextColor="#333"
+                                BackgroundColor="#F8F8F8"/>
+                    </VerticalStackLayout>
+
+                    <!-- Versão -->
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Versão" 
+                               FontSize="14" 
+                               TextColor="#333"
+                               FontAttributes="Bold"/>
+                        <Entry x:Name="VersaoEntry"
+                               Placeholder="Ex: 1.0.0"
+                               TextColor="#333"
+                               BackgroundColor="#F8F8F8"/>
+                    </VerticalStackLayout>
+
+                    <!-- Cliente -->
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Cliente" 
+                               FontSize="14" 
+                               TextColor="#999"
+                               FontAttributes="Bold"/>
+                        <Label x:Name="ClienteLabel"
+                               Text="-"
+                               FontSize="16"
+                               TextColor="#333"/>
+                    </VerticalStackLayout>
+
+                    <!-- Ativo -->
+                    <HorizontalStackLayout Spacing="10">
+                        <Switch x:Name="AtivoSwitch"/>
+                        <Label Text="Produto Ativo"
+                               VerticalOptions="Center"
+                               TextColor="#333"/>
+                    </HorizontalStackLayout>
+
+                    <BoxView HeightRequest="1" 
+                             BackgroundColor="#E0E0E0" 
+                             Margin="0,10,0,10"/>
+
+                    <!-- Botões -->
+                    <Grid ColumnDefinitions="*,*,*" ColumnSpacing="10">
+                        
+                        <Button Grid.Column="0"
+                                Text="EXCLUIR"
+                                Clicked="OnExcluirClicked"
+                                BackgroundColor="#F44336"
+                                TextColor="White"
+                                CornerRadius="8"
+                                HeightRequest="50"/>
+
+                        <Button Grid.Column="1"
+                                Text="CANCELAR"
+                                Clicked="OnCancelarClicked"
+                                BackgroundColor="#757575"
+                                TextColor="White"
+                                CornerRadius="8"
+                                HeightRequest="50"/>
+
+                        <Button Grid.Column="2"
+                                Text="SALVAR"
+                                Clicked="OnSalvarClicked"
+                                BackgroundColor="#FF9800"
+                                TextColor="White"
+                                CornerRadius="8"
+                                HeightRequest="50"/>
+                    </Grid>
+
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Data de Criação -->
+            <Frame Padding="15" 
+                   CornerRadius="8" 
+                   BackgroundColor="#E3F2FD"
+                   HasShadow="False">
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="📅"
+                           FontSize="18"/>
+                    <VerticalStackLayout>
+                        <Label Text="Data de Cadastro"
+                               FontSize="12"
+                               TextColor="#1976D2"/>
+                        <Label x:Name="DataCriacaoLabel"
+                               Text="-"
+                               FontSize="14"
+                               TextColor="#333"/>
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

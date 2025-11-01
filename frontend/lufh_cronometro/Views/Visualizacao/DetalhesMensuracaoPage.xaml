@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp.Views.Visualizacao.DetalhesMensuracaoPage"
+             Title="Detalhes da Mensuração"
+             BackgroundColor="#F5F5F5">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <!-- Header -->
+            <Frame Padding="20" 
+                   CornerRadius="10" 
+                   BackgroundColor="White"
+                   HasShadow="True">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="📊 Detalhes da Mensuração"
+                           FontSize="24"
+                           FontAttributes="Bold"
+                           TextColor="#1976D2"/>
+                    <HorizontalStackLayout Spacing="10">
+                        <Frame x:Name="StatusFrame"
+                               Padding="8,4"
+                               CornerRadius="4"
+                               BackgroundColor="#E8F5E9"
+                               HasShadow="False">
+                            <Label x:Name="StatusLabel"
+                                   Text="CONCLUÍDA"
+                                   FontSize="11"
+                                   FontAttributes="Bold"
+                                   TextColor="#4CAF50"/>
+                        </Frame>
+                        <Label x:Name="IdLabel"
+                               Text="ID: -"
+                               FontSize="12"
+                               TextColor="#999"
+                               VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Informações Gerais -->
+            <Frame Padding="20" 
+                   CornerRadius="10" 
+                   BackgroundColor="White"
+                   HasShadow="True">
+                <VerticalStackLayout Spacing="15">
+                    
+                    <Label Text="📋 Informações Gerais"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           TextColor="#333"/>
+
+                    <Grid ColumnDefinitions="120,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto" RowSpacing="10">
+                        
+                        <Label Grid.Row="0" Grid.Column="0" 
+                               Text="Teste:" 
+                               FontSize="14" 
+                               TextColor="#666"/>
+                        <Label Grid.Row="0" Grid.Column="1" 
+                               x:Name="TesteLabel"
+                               Text="-"
+                               FontSize="14" 
+                               FontAttributes="Bold"
+                               TextColor="#333"/>
+
+                        <Label Grid.Row="1" Grid.Column="0" 
+                               Text="Voluntário:" 
+                               FontSize="14" 
+                               TextColor="#666"/>
+                        <Label Grid.Row="1" Grid.Column="1" 
+                               x:Name="VoluntarioLabel"
+                               Text="-"
+                               FontSize="14" 
+                               FontAttributes="Bold"
+                               TextColor="#333"/>
+
+                        <Label Grid.Row="2" Grid.Column="0" 
+                               Text="Data Início:" 
+                               FontSize="14" 
+                               TextColor="#666"/>
+                        <Label Grid.Row="2" Grid.Column="1" 
+                               x:Name="DataInicioLabel"
+                               Text="-"
+                               FontSize="14" 
+                               TextColor="#333"/>
+
+                        <Label Grid.Row="3" Grid.Column="0" 
+                               Text="Data Fim:" 
+                               FontSize="14" 
+                               TextColor="#666"/>
+                        <Label Grid.Row="3" Grid.Column="1" 
+                               x:Name="DataFimLabel"
+                               Text="-"
+                               FontSize="14" 
+                               TextColor="#333"/>
+
+                        <Label Grid.Row="4" Grid.Column="0" 
+                               Text="Duração Total:" 
+                               FontSize="14" 
+                               TextColor="#666"/>
+                        <Label Grid.Row="4" Grid.Column="1" 
+                               x:Name="DuracaoLabel"
+                               Text="-"
+                               FontSize="14" 
+                               FontAttributes="Bold"
+                               TextColor="#4CAF50"/>
+                    </Grid>
+
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Estatísticas -->
+            <Frame Padding="20" 
+                   CornerRadius="10" 
+                   BackgroundColor="White"
+                   HasShadow="True">
+                <VerticalStackLayout Spacing="15">
+                    
+                    <Label Text="📈 Estatísticas"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           TextColor="#333"/>
+
+                    <Grid ColumnDefinitions="*,*,*" ColumnSpacing="10">
+                        
+                        <!-- Interrupções -->
+                        <Frame Grid.Column="0"
+                               Padding="15"
+                               CornerRadius="8"
+                               BackgroundColor="#FFF3E0">
+                            <VerticalStackLayout Spacing="5">
+                                <Label Text="⏸️"
+                                       FontSize="30"
+                                       HorizontalOptions="Center"/>
+                                <Label x:Name="InterrupcoesLabel"
+                                       Text="0"
+                                       FontSize="32"
+                                       FontAttributes="Bold"
+                                       TextColor="#FF9800"
+                                       HorizontalOptions="Center"/>
+                                <Label Text="Interrupções"
+                                       FontSize="11"
+                                       TextColor="#666"
+                                       HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
+                        </Frame>
+
+                        <!-- Frustrações -->
+                        <Frame Grid.Column="1"
+                               Padding="15"
+                               CornerRadius="8"
+                               BackgroundColor="#FFEBEE">
+                            <VerticalStackLayout Spacing="5">
+                                <Label Text="😟"
+                                       FontSize="30"
+                                       HorizontalOptions="Center"/>
+                                <Label x:Name="FrustracoesLabel"
+                                       Text="0"
+                                       FontSize="32"
+                                       FontAttributes="Bold"
+                                       TextColor="#F44336"
+                                       HorizontalOptions="Center"/>
+                                <Label Text="Frustrações"
+                                       FontSize="11"
+                                       TextColor="#666"
+                                       HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
+                        </Frame>
+
+                        <!-- Tarefas -->
+                        <Frame Grid.Column="2"
+                               Padding="15"
+                               CornerRadius="8"
+                               BackgroundColor="#E8F5E9">
+                            <VerticalStackLayout Spacing="5">
+                                <Label Text="✅"
+                                       FontSize="30"
+                                       HorizontalOptions="Center"/>
+                                <Label x:Name="TarefasLabel"
+                                       Text="0/0"
+                                       FontSize="32"
+                                       FontAttributes="Bold"
+                                       TextColor="#4CAF50"
+                                       HorizontalOptions="Center"/>
+                                <Label Text="Tarefas"
+                                       FontSize="11"
+                                       TextColor="#666"
+                                       HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
+                        </Frame>
+
+                    </Grid>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Interrupções Detalhadas -->
+            <Frame x:Name="InterrupcoesFrame"
+                   Padding="20" 
+                   CornerRadius="10" 
+                   BackgroundColor="White"
+                   HasShadow="True"
+                   IsVisible="False">
+                <VerticalStackLayout x:Name="InterrupcoesContainer" Spacing="10">
+                    <Label Text="⏸️ Interrupções Registradas"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           TextColor="#333"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Frustrações Detalhadas -->
+            <Frame x:Name="FrustracoesFrame"
+                   Padding="20" 
+                   CornerRadius="10" 
+                   BackgroundColor="White"
+                   HasShadow="True"
+                   IsVisible="False">
+                <VerticalStackLayout x:Name="FrustracoesContainer" Spacing="10">
+                    <Label Text="😟 Frustrações Registradas"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           TextColor="#333"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Observações -->
+            <Frame Padding="20" 
+                   CornerRadius="10" 
+                   BackgroundColor="White"
+                   HasShadow="True">
+                <VerticalStackLayout Spacing="10">
+                    
+                    <Label Text="📝 Observações"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           TextColor="#333"/>
+
+                    <Label x:Name="ObservacoesLabel"
+                           Text="Nenhuma observação registrada."
+                           FontSize="14"
+                           TextColor="#666"/>
+
+                </VerticalStackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

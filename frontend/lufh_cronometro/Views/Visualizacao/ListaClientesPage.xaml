@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp.Views.Visualizacao.ListaClientesPage"
+             Title="Clientes"
+             BackgroundColor="#F5F5F5">
+
+    <Grid RowDefinitions="Auto,Auto,*,Auto">
+
+        <!-- Header -->
+        <Frame Grid.Row="0" 
+               Padding="20" 
+               Margin="20,20,20,10"
+               CornerRadius="10" 
+               BackgroundColor="White"
+               HasShadow="True">
+            <Grid ColumnDefinitions="*,Auto">
+                <VerticalStackLayout Grid.Column="0" Spacing="5">
+                    <Label Text="👤 Clientes"
+                           FontSize="24"
+                           FontAttributes="Bold"
+                           TextColor="#1976D2"/>
+                    <Label x:Name="TotalLabel"
+                           Text="Carregando..."
+                           FontSize="14"
+                           TextColor="#666"/>
+                </VerticalStackLayout>
+                
+                <Button Grid.Column="1"
+                        Text="🔄"
+                        Clicked="OnAtualizarClicked"
+                        BackgroundColor="#4CAF50"
+                        TextColor="White"
+                        CornerRadius="8"
+                        WidthRequest="50"
+                        HeightRequest="50"
+                        VerticalOptions="Center"/>
+            </Grid>
+        </Frame>
+
+        <!-- Busca -->
+        <Frame Grid.Row="1" 
+               Padding="15" 
+               Margin="20,0,20,10"
+               CornerRadius="10" 
+               BackgroundColor="White"
+               HasShadow="True">
+            <SearchBar x:Name="BuscaSearchBar"
+                       Placeholder="Buscar cliente..."
+                       TextChanged="OnBuscaTextChanged"
+                       BackgroundColor="Transparent"/>
+        </Frame>
+
+        <!-- Lista -->
+        <RefreshView Grid.Row="2" 
+                     x:Name="RefreshView"
+                     Refreshing="OnRefreshing"
+                     Margin="20,0,20,10">
+            <CollectionView x:Name="ClientesCollectionView"
+                           SelectionMode="Single"
+                           SelectionChanged="OnClienteSelecionado">
+                <CollectionView.EmptyView>
+                    <VerticalStackLayout VerticalOptions="Center" Spacing="10">
+                        <Label Text="📭"
+                               FontSize="60"
+                               HorizontalOptions="Center"/>
+                        <Label Text="Nenhum cliente encontrado"
+                               FontSize="16"
+                               TextColor="#999"
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </CollectionView.EmptyView>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="15" 
+                               Margin="0,5" 
+                               CornerRadius="10"
+                               BackgroundColor="White"
+                               HasShadow="True">
+                            <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="15">
+                                
+                                <!-- Ícone -->
+                                <Frame Grid.Column="0"
+                                       WidthRequest="50"
+                                       HeightRequest="50"
+                                       CornerRadius="25"
+                                       Padding="0"
+                                       BackgroundColor="#E3F2FD"
+                                       HasShadow="False">
+                                    <Label Text="👤"
+                                           FontSize="24"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center"/>
+                                </Frame>
+
+                                <!-- Informações -->
+                                <VerticalStackLayout Grid.Column="1" 
+                                                    VerticalOptions="Center" 
+                                                    Spacing="3">
+                                    <Label Text="{Binding Nome}"
+                                           FontSize="16"
+                                           FontAttributes="Bold"
+                                           TextColor="#333"/>
+                                    <Label Text="{Binding Empresa}"
+                                           FontSize="13"
+                                           TextColor="#666"
+                                           IsVisible="{Binding Empresa, Converter={StaticResource StringNotNullOrEmptyConverter}}"/>
+                                    <Label Text="{Binding Email}"
+                                           FontSize="12"
+                                           TextColor="#999"/>
+                                </VerticalStackLayout>
+
+                                <!-- Status/Seta -->
+                                <VerticalStackLayout Grid.Column="2" 
+                                                    VerticalOptions="Center"
+                                                    Spacing="5">
+                                    <Label Text="●"
+                                           FontSize="12"
+                                           TextColor="{Binding Ativo, Converter={StaticResource BoolToColorConverter}}"
+                                           HorizontalOptions="Center"/>
+                                    <Label Text="›"
+                                           FontSize="30"
+                                           TextColor="#CCC"
+                                           HorizontalOptions="Center"/>
+                                </VerticalStackLayout>
+
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+
+        <!-- Rodapé -->
+        <Frame Grid.Row="3" 
+               Padding="15" 
+               Margin="0"
+               CornerRadius="0"
+               BackgroundColor="White"
+               HasShadow="True"
+               IsVisible="{Binding ModoEdicao}">
+            <Label Text="💡 Toque em um cliente para editar"
+                   FontSize="13"
+                   TextColor="#666"
+                   HorizontalOptions="Center"/>
+        </Frame>
+
+    </Grid>
+</ContentPage>

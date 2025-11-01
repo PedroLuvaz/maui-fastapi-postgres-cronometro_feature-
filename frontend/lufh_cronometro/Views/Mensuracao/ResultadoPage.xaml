@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp.Views.Mensuracao.ResultadoPage"
+             Title="Resultado do Teste"
+             BackgroundColor="#F5F5F5"
+             NavigationPage.HasBackButton="False">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+
+        <!-- Header -->
+        <Frame Grid.Row="0" 
+               Padding="20" 
+               Margin="0"
+               CornerRadius="0"
+               BackgroundColor="#4CAF50"
+               HasShadow="True">
+            <VerticalStackLayout Spacing="5">
+                <Label Text="✅ Teste Finalizado!"
+                       FontSize="28"
+                       FontAttributes="Bold"
+                       TextColor="White"
+                       HorizontalOptions="Center"/>
+                <Label Text="Resumo da Mensuração"
+                       FontSize="14"
+                       TextColor="#E8F5E9"
+                       HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+        </Frame>
+
+        <!-- Conteúdo -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="20" Spacing="20">
+
+                <!-- Card: Informações Gerais -->
+                <Frame Padding="20" 
+                       CornerRadius="10" 
+                       BackgroundColor="White"
+                       HasShadow="True">
+                    <VerticalStackLayout Spacing="15">
+                        
+                        <Label Text="📋 Informações Gerais"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               TextColor="#333"/>
+
+                        <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto,Auto" RowSpacing="10">
+                            
+                            <Label Grid.Row="0" Grid.Column="0" 
+                                   Text="Teste:" 
+                                   FontSize="14" 
+                                   TextColor="#666"/>
+                            <Label Grid.Row="0" Grid.Column="1" 
+                                   x:Name="TesteLabel"
+                                   Text="-"
+                                   FontSize="14" 
+                                   FontAttributes="Bold"
+                                   TextColor="#333"/>
+
+                            <Label Grid.Row="1" Grid.Column="0" 
+                                   Text="Voluntário:" 
+                                   FontSize="14" 
+                                   TextColor="#666"/>
+                            <Label Grid.Row="1" Grid.Column="1" 
+                                   x:Name="VoluntarioLabel"
+                                   Text="-"
+                                   FontSize="14" 
+                                   FontAttributes="Bold"
+                                   TextColor="#333"/>
+
+                            <Label Grid.Row="2" Grid.Column="0" 
+                                   Text="Data/Hora:" 
+                                   FontSize="14" 
+                                   TextColor="#666"/>
+                            <Label Grid.Row="2" Grid.Column="1" 
+                                   x:Name="DataHoraLabel"
+                                   Text="-"
+                                   FontSize="14" 
+                                   TextColor="#333"/>
+
+                            <Label Grid.Row="3" Grid.Column="0" 
+                                   Text="Duração:" 
+                                   FontSize="14" 
+                                   TextColor="#666"/>
+                            <Label Grid.Row="3" Grid.Column="1" 
+                                   x:Name="DuracaoLabel"
+                                   Text="-"
+                                   FontSize="14" 
+                                   FontAttributes="Bold"
+                                   TextColor="#4CAF50"/>
+                        </Grid>
+
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Card: Estatísticas -->
+                <Frame Padding="20" 
+                       CornerRadius="10" 
+                       BackgroundColor="White"
+                       HasShadow="True">
+                    <VerticalStackLayout Spacing="15">
+                        
+                        <Label Text="📊 Estatísticas"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               TextColor="#333"/>
+
+                        <Grid ColumnDefinitions="*,*,*" ColumnSpacing="10">
+                            
+                            <!-- Interrupções -->
+                            <Frame Grid.Column="0"
+                                   Padding="15"
+                                   CornerRadius="8"
+                                   BackgroundColor="#FFF3E0">
+                                <VerticalStackLayout Spacing="5">
+                                    <Label Text="⏸️"
+                                           FontSize="30"
+                                           HorizontalOptions="Center"/>
+                                    <Label x:Name="InterrupcoesLabel"
+                                           Text="0"
+                                           FontSize="32"
+                                           FontAttributes="Bold"
+                                           TextColor="#FF9800"
+                                           HorizontalOptions="Center"/>
+                                    <Label Text="Interrupções"
+                                           FontSize="11"
+                                           TextColor="#666"
+                                           HorizontalOptions="Center"/>
+                                </VerticalStackLayout>
+                            </Frame>
+
+                            <!-- Frustrações -->
+                            <Frame Grid.Column="1"
+                                   Padding="15"
+                                   CornerRadius="8"
+                                   BackgroundColor="#FFEBEE">
+                                <VerticalStackLayout Spacing="5">
+                                    <Label Text="😟"
+                                           FontSize="30"
+                                           HorizontalOptions="Center"/>
+                                    <Label x:Name="FrustracoesLabel"
+                                           Text="0"
+                                           FontSize="32"
+                                           FontAttributes="Bold"
+                                           TextColor="#F44336"
+                                           HorizontalOptions="Center"/>
+                                    <Label Text="Frustrações"
+                                           FontSize="11"
+                                           TextColor="#666"
+                                           HorizontalOptions="Center"/>
+                                </VerticalStackLayout>
+                            </Frame>
+
+                            <!-- Tarefas -->
+                            <Frame Grid.Column="2"
+                                   Padding="15"
+                                   CornerRadius="8"
+                                   BackgroundColor="#E8F5E9">
+                                <VerticalStackLayout Spacing="5">
+                                    <Label Text="✅"
+                                           FontSize="30"
+                                           HorizontalOptions="Center"/>
+                                    <Label x:Name="TarefasLabel"
+                                           Text="0/0"
+                                           FontSize="32"
+                                           FontAttributes="Bold"
+                                           TextColor="#4CAF50"
+                                           HorizontalOptions="Center"/>
+                                    <Label Text="Tarefas"
+                                           FontSize="11"
+                                           TextColor="#666"
+                                           HorizontalOptions="Center"/>
+                                </VerticalStackLayout>
+                            </Frame>
+
+                        </Grid>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Card: Observações -->
+                <Frame Padding="20" 
+                       CornerRadius="10" 
+                       BackgroundColor="White"
+                       HasShadow="True">
+                    <VerticalStackLayout Spacing="10">
+                        
+                        <Label Text="📝 Observações"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               TextColor="#333"/>
+
+                        <Label x:Name="ObservacoesLabel"
+                               Text="Nenhuma observação registrada."
+                               FontSize="14"
+                               TextColor="#666"/>
+
+                    </VerticalStackLayout>
+                </Frame>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Botões -->
+        <Frame Grid.Row="2" 
+               Padding="20" 
+               Margin="0"
+               CornerRadius="0"
+               BackgroundColor="White"
+               HasShadow="True">
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="15">
+                
+                <Button Grid.Column="0"
+                        Text="VER DETALHES"
+                        Clicked="OnVerDetalhesClicked"
+                        BackgroundColor="#2196F3"
+                        TextColor="White"
+                        CornerRadius="8"
+                        HeightRequest="55"/>
+
+                <Button Grid.Column="1"
+                        Text="VOLTAR AO MENU"
+                        Clicked="OnVoltarMenuClicked"
+                        BackgroundColor="#4CAF50"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        CornerRadius="8"
+                        HeightRequest="55"/>
+            </Grid>
+        </Frame>
+
+    </Grid>
+</ContentPage>

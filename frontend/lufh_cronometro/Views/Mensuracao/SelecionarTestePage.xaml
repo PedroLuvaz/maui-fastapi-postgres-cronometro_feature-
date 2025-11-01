@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp.Views.Mensuracao.SelecionarTestePage"
+             Title="Selecionar Teste"
+             BackgroundColor="#F5F5F5">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+
+        <!-- Header -->
+        <Frame Grid.Row="0" 
+               Padding="20" 
+               Margin="20,20,20,10"
+               CornerRadius="10" 
+               BackgroundColor="White"
+               HasShadow="True">
+            <VerticalStackLayout Spacing="5">
+                <Label Text="🧪 Iniciar Mensuração"
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       TextColor="#00BCD4"/>
+                <Label Text="Selecione o teste e o voluntário"
+                       FontSize="14"
+                       TextColor="#666"/>
+            </VerticalStackLayout>
+        </Frame>
+
+        <!-- Formulário -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="20,10,20,20" Spacing="20">
+
+                <Frame Padding="20" 
+                       CornerRadius="10" 
+                       BackgroundColor="White"
+                       HasShadow="True">
+                    
+                    <VerticalStackLayout Spacing="15">
+
+                        <!-- Teste -->
+                        <VerticalStackLayout Spacing="8">
+                            <Label Text="Teste de Usabilidade *" 
+                                   FontSize="14" 
+                                   TextColor="#333"
+                                   FontAttributes="Bold"/>
+                            <Picker x:Name="TestePicker"
+                                    Title="Selecione o teste"
+                                    SelectedIndexChanged="OnTesteChanged"
+                                    TextColor="#333"
+                                    BackgroundColor="#F8F8F8"/>
+                        </VerticalStackLayout>
+
+                        <!-- Info do Teste -->
+                        <Frame x:Name="InfoTesteFrame"
+                               Padding="15"
+                               CornerRadius="8"
+                               BackgroundColor="#E1F5FE"
+                               IsVisible="False"
+                               HasShadow="False">
+                            <VerticalStackLayout Spacing="5">
+                                <Label Text="📋 Informações do Teste"
+                                       FontSize="12"
+                                       FontAttributes="Bold"
+                                       TextColor="#0277BD"/>
+                                <Label x:Name="InfoClienteLabel"
+                                       FontSize="11"
+                                       TextColor="#333"/>
+                                <Label x:Name="InfoProdutoLabel"
+                                       FontSize="11"
+                                       TextColor="#333"/>
+                                <Label x:Name="InfoCoordenadorLabel"
+                                       FontSize="11"
+                                       TextColor="#333"/>
+                            </VerticalStackLayout>
+                        </Frame>
+
+                        <BoxView HeightRequest="1" BackgroundColor="#E0E0E0"/>
+
+                        <!-- Voluntário -->
+                        <VerticalStackLayout Spacing="8">
+                            <Label Text="Voluntário *" 
+                                   FontSize="14" 
+                                   TextColor="#333"
+                                   FontAttributes="Bold"/>
+                            <Picker x:Name="VoluntarioPicker"
+                                    Title="Selecione o voluntário"
+                                    TextColor="#333"
+                                    BackgroundColor="#F8F8F8"/>
+                        </VerticalStackLayout>
+
+                        <!-- Observações Iniciais -->
+                        <VerticalStackLayout Spacing="8">
+                            <Label Text="Observações Iniciais" 
+                                   FontSize="14" 
+                                   TextColor="#333"
+                                   FontAttributes="Bold"/>
+                            <Editor x:Name="ObservacoesEditor"
+                                    Placeholder="Anotações sobre o teste ou voluntário (opcional)"
+                                    HeightRequest="100"
+                                    TextColor="#333"
+                                    BackgroundColor="#F8F8F8"/>
+                        </VerticalStackLayout>
+
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Avisos -->
+                <Frame Padding="15"
+                       CornerRadius="8"
+                       BackgroundColor="#FFF3E0"
+                       HasShadow="False">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="⚠️ Antes de Iniciar:"
+                               FontSize="14"
+                               FontAttributes="Bold"
+                               TextColor="#F57C00"/>
+                        <Label Text="• Certifique-se que o ambiente está preparado"
+                               FontSize="12"
+                               TextColor="#333"/>
+                        <Label Text="• Oriente o voluntário sobre o teste"
+                               FontSize="12"
+                               TextColor="#333"/>
+                        <Label Text="• Verifique se os roteiros estão configurados"
+                               FontSize="12"
+                               TextColor="#333"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Botões -->
+        <Frame Grid.Row="2" 
+               Padding="20" 
+               Margin="0"
+               CornerRadius="0"
+               BackgroundColor="White"
+               HasShadow="True">
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="15">
+                
+                <Button Grid.Column="0"
+                        Text="CANCELAR"
+                        Clicked="OnCancelarClicked"
+                        BackgroundColor="#757575"
+                        TextColor="White"
+                        CornerRadius="8"
+                        HeightRequest="55"/>
+
+                <Button Grid.Column="1"
+                        Text="INICIAR TESTE"
+                        Clicked="OnIniciarClicked"
+                        BackgroundColor="#00BCD4"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        CornerRadius="8"
+                        HeightRequest="55"/>
+            </Grid>
+        </Frame>
+
+    </Grid>
+</ContentPage>

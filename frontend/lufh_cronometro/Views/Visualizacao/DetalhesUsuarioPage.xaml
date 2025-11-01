@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp.Views.Visualizacao.DetalhesUsuarioPage"
+             Title="Detalhes do Usuário"
+             BackgroundColor="#F5F5F5">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <!-- Header -->
+            <Frame Padding="20" 
+                   CornerRadius="10" 
+                   BackgroundColor="White"
+                   HasShadow="True">
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="15">
+                    <Frame Grid.Column="0"
+                           WidthRequest="60"
+                           HeightRequest="60"
+                           CornerRadius="30"
+                           Padding="0"
+                           BackgroundColor="#FFF3E0">
+                        <Label Text="👤"
+                               FontSize="35"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+                    </Frame>
+                    <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="5">
+                        <Label x:Name="NomeLabel"
+                               Text="-"
+                               FontSize="22"
+                               FontAttributes="Bold"
+                               TextColor="#333"/>
+                        <Label x:Name="StatusLabel"
+                               Text="Status"
+                               FontSize="13"
+                               TextColor="#666"/>
+                    </VerticalStackLayout>
+                    <Frame Grid.Column="2"
+                           Padding="10,5"
+                           CornerRadius="6"
+                           x:Name="TipoBadge"
+                           HasShadow="False"
+                           VerticalOptions="Center">
+                        <Label x:Name="TipoLabel"
+                               Text="Tipo"
+                               FontSize="12"
+                               FontAttributes="Bold"
+                               TextColor="White"/>
+                    </Frame>
+                </Grid>
+            </Frame>
+
+            <!-- Informações -->
+            <Frame Padding="20" 
+                   CornerRadius="10" 
+                   BackgroundColor="White"
+                   HasShadow="True">
+                <VerticalStackLayout Spacing="15">
+                    
+                    <Label Text="📋 Informações"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           TextColor="#333"/>
+
+                    <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto" RowSpacing="12">
+                        
+                        <Label Grid.Row="0" Grid.Column="0" Text="ID:" FontSize="14" TextColor="#666"/>
+                        <Label Grid.Row="0" Grid.Column="1" x:Name="IdLabel" Text="-" FontSize="14" TextColor="#333"/>
+
+                        <Label Grid.Row="1" Grid.Column="0" Text="E-mail:" FontSize="14" TextColor="#666"/>
+                        <Label Grid.Row="1" Grid.Column="1" x:Name="EmailLabel" Text="-" FontSize="14" TextColor="#333"/>
+
+                        <Label Grid.Row="2" Grid.Column="0" Text="Cadastro:" FontSize="14" TextColor="#666"/>
+                        <Label Grid.Row="2" Grid.Column="1" x:Name="DataCriacaoLabel" Text="-" FontSize="14" TextColor="#333"/>
+
+                    </Grid>
+                </VerticalStackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

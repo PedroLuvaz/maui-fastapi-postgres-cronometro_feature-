@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp.Views.Visualizacao.ListaMensuracoesPage"
+             Title="Mensurações"
+             BackgroundColor="#F5F5F5">
+
+    <Grid RowDefinitions="Auto,Auto,*">
+
+        <!-- Header -->
+        <Frame Grid.Row="0" 
+               Padding="20" 
+               Margin="20,20,20,10"
+               CornerRadius="10" 
+               BackgroundColor="White"
+               HasShadow="True">
+            <VerticalStackLayout Spacing="5">
+                <Label Text="📊 Mensurações do Teste"
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       TextColor="#1976D2"/>
+                <Label x:Name="TesteNomeLabel"
+                       Text="-"
+                       FontSize="14"
+                       TextColor="#666"/>
+            </VerticalStackLayout>
+        </Frame>
+
+        <!-- Filtros -->
+        <Frame Grid.Row="1" 
+               Padding="15" 
+               Margin="20,0,20,10"
+               CornerRadius="8" 
+               BackgroundColor="White"
+               HasShadow="True">
+            <HorizontalStackLayout Spacing="10">
+                <Label Text="Filtrar:"
+                       FontSize="14"
+                       VerticalOptions="Center"
+                       TextColor="#666"/>
+                <Picker x:Name="FiltroStatusPicker"
+                        WidthRequest="150"
+                        SelectedIndexChanged="OnFiltroChanged">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Todas</x:String>
+                            <x:String>Concluídas</x:String>
+                            <x:String>Em Andamento</x:String>
+                            <x:String>Aguardando</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                    <Picker.SelectedIndex>0</Picker.SelectedIndex>
+                </Picker>
+            </HorizontalStackLayout>
+        </Frame>
+
+        <!-- Lista -->
+        <ScrollView Grid.Row="2">
+            <VerticalStackLayout x:Name="ListaContainer" 
+                                Padding="20,0,20,20" 
+                                Spacing="15">
+                <!-- Mensurações serão adicionadas aqui -->
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Loading/Empty State -->
+        <Frame Grid.Row="2"
+               x:Name="EmptyFrame"
+               Padding="40"
+               Margin="20"
+               CornerRadius="10"
+               BackgroundColor="White"
+               VerticalOptions="Center"
+               HasShadow="True"
+               IsVisible="False">
+            <VerticalStackLayout Spacing="15" HorizontalOptions="Center">
+                <Label Text="📭"
+                       FontSize="60"
+                       HorizontalOptions="Center"/>
+                <Label Text="Nenhuma mensuração encontrada"
+                       FontSize="18"
+                       FontAttributes="Bold"
+                       TextColor="#666"
+                       HorizontalOptions="Center"/>
+                <Label Text="As mensurações realizadas aparecerão aqui."
+                       FontSize="14"
+                       TextColor="#999"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"/>
+            </VerticalStackLayout>
+        </Frame>
+
+    </Grid>
+</ContentPage>

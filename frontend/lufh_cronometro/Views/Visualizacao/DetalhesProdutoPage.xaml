@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp.Views.Visualizacao.DetalhesProdutoPage"
+             Title="Detalhes do Produto"
+             BackgroundColor="#F5F5F5">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <!-- Header -->
+            <Frame Padding="20" 
+                   CornerRadius="10" 
+                   BackgroundColor="White"
+                   HasShadow="True">
+                <Grid ColumnDefinitions="Auto,*" ColumnSpacing="15">
+                    <Frame Grid.Column="0"
+                           WidthRequest="60"
+                           HeightRequest="60"
+                           CornerRadius="30"
+                           Padding="0"
+                           BackgroundColor="#E8F5E9">
+                        <Label Text="📦"
+                               FontSize="35"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+                    </Frame>
+                    <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="5">
+                        <Label x:Name="NomeLabel"
+                               Text="-"
+                               FontSize="22"
+                               FontAttributes="Bold"
+                               TextColor="#333"/>
+                        <Label x:Name="StatusLabel"
+                               Text="Status"
+                               FontSize="13"
+                               TextColor="#666"/>
+                    </VerticalStackLayout>
+                </Grid>
+            </Frame>
+
+            <!-- Informações -->
+            <Frame Padding="20" 
+                   CornerRadius="10" 
+                   BackgroundColor="White"
+                   HasShadow="True">
+                <VerticalStackLayout Spacing="15">
+                    
+                    <Label Text="📋 Informações"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           TextColor="#333"/>
+
+                    <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto" RowSpacing="12">
+                        
+                        <Label Grid.Row="0" Grid.Column="0" Text="ID:" FontSize="14" TextColor="#666"/>
+                        <Label Grid.Row="0" Grid.Column="1" x:Name="IdLabel" Text="-" FontSize="14" TextColor="#333"/>
+
+                        <Label Grid.Row="1" Grid.Column="0" Text="Versão:" FontSize="14" TextColor="#666"/>
+                        <Label Grid.Row="1" Grid.Column="1" x:Name="VersaoLabel" Text="-" FontSize="14" TextColor="#333"/>
+
+                        <Label Grid.Row="2" Grid.Column="0" Text="Cliente:" FontSize="14" TextColor="#666"/>
+                        <Label Grid.Row="2" Grid.Column="1" x:Name="ClienteLabel" Text="-" FontSize="14" TextColor="#333"/>
+
+                        <Label Grid.Row="3" Grid.Column="0" Text="Descrição:" FontSize="14" TextColor="#666"/>
+                        <Label Grid.Row="3" Grid.Column="1" x:Name="DescricaoLabel" Text="-" FontSize="14" TextColor="#333"/>
+
+                        <Label Grid.Row="4" Grid.Column="0" Text="Cadastro:" FontSize="14" TextColor="#666"/>
+                        <Label Grid.Row="4" Grid.Column="1" x:Name="DataCriacaoLabel" Text="-" FontSize="14" TextColor="#333"/>
+
+                    </Grid>
+                </VerticalStackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

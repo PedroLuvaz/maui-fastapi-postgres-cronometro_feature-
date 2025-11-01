@@ -1,4 +1,19 @@
-from app.models.models import Alimento
-from app.models.database import Base, engine, SessionLocal
+from .models import (
+    Usuario,
+    Cliente,
+    Produto,
+    Teste,
+    Mensuracao,
+    Interrupcao,
+    Frustacao
+)
 
-__all__ = ["Alimento", "Base", "engine", "SessionLocal"]
+__all__ = [
+    "Usuario",
+    "Cliente",
+    "Produto",
+    "Teste",
+    "Mensuracao",
+    "Interrupcao",
+    "Frustacao"
+]

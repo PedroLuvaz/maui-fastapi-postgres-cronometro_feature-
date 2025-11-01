@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp.Views.Mensuracao.CronometroPage"
+             Title="Cronômetro"
+             BackgroundColor="#212121"
+             NavigationPage.HasBackButton="False">
+
+    <Grid RowDefinitions="Auto,*,Auto,Auto">
+
+        <!-- Header Info -->
+        <Frame Grid.Row="0" 
+               Padding="20" 
+               Margin="0"
+               CornerRadius="0"
+               BackgroundColor="#1976D2"
+               HasShadow="False">
+            <Grid ColumnDefinitions="*,Auto">
+                <VerticalStackLayout Grid.Column="0" Spacing="3">
+                    <Label x:Name="TesteNomeLabel"
+                           Text="Nome do Teste"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           TextColor="White"/>
+                    <Label x:Name="VoluntarioNomeLabel"
+                           Text="Voluntário"
+                           FontSize="14"
+                           TextColor="#E3F2FD"/>
+                </VerticalStackLayout>
+                
+                <Label Grid.Column="1"
+                       x:Name="StatusLabel"
+                       Text="AGUARDANDO"
+                       FontSize="12"
+                       FontAttributes="Bold"
+                       TextColor="#FFF59D"
+                       VerticalOptions="Center"
+                       Padding="10,5"
+                       BackgroundColor="#00000040"/>
+            </Grid>
+        </Frame>
+
+        <!-- Cronômetro Principal -->
+        <VerticalStackLayout Grid.Row="1" 
+                            VerticalOptions="Center" 
+                            HorizontalOptions="Center"
+                            Spacing="30">
+            
+            <!-- Display do Tempo -->
+            <Frame Padding="30,40"
+                   CornerRadius="20"
+                   BackgroundColor="#1E1E1E"
+                   HasShadow="True">
+                <Label x:Name="TempoLabel"
+                       Text="00:00:00"
+                       FontSize="72"
+                       FontAttributes="Bold"
+                       TextColor="#00E676"
+                       HorizontalOptions="Center"
+                       FontFamily="Consolas"/>
+            </Frame>
+
+            <!-- Contador de Eventos -->
+            <Grid ColumnDefinitions="*,*,*" ColumnSpacing="20">
+                
+                <!-- Interrupções -->
+                <Frame Grid.Column="0"
+                       Padding="15"
+                       CornerRadius="10"
+                       BackgroundColor="#1E1E1E">
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="⏸️"
+                               FontSize="24"
+                               HorizontalOptions="Center"/>
+                        <Label x:Name="InterrupcoesLabel"
+                               Text="0"
+                               FontSize="28"
+                               FontAttributes="Bold"
+                               TextColor="#FFC107"
+                               HorizontalOptions="Center"/>
+                        <Label Text="Interrupções"
+                               FontSize="11"
+                               TextColor="#AAA"
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Frustrações -->
+                <Frame Grid.Column="1"
+                       Padding="15"
+                       CornerRadius="10"
+                       BackgroundColor="#1E1E1E">
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="😟"
+                               FontSize="24"
+                               HorizontalOptions="Center"/>
+                        <Label x:Name="FrustracoesLabel"
+                               Text="0"
+                               FontSize="28"
+                               FontAttributes="Bold"
+                               TextColor="#F44336"
+                               HorizontalOptions="Center"/>
+                        <Label Text="Frustrações"
+                               FontSize="11"
+                               TextColor="#AAA"
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Tarefas -->
+                <Frame Grid.Column="2"
+                       Padding="15"
+                       CornerRadius="10"
+                       BackgroundColor="#1E1E1E">
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="✅"
+                               FontSize="24"
+                               HorizontalOptions="Center"/>
+                        <Label x:Name="TarefasLabel"
+                               Text="0/0"
+                               FontSize="28"
+                               FontAttributes="Bold"
+                               TextColor="#4CAF50"
+                               HorizontalOptions="Center"/>
+                        <Label Text="Tarefas"
+                               FontSize="11"
+                               TextColor="#AAA"
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+            </Grid>
+
+        </VerticalStackLayout>
+
+        <!-- Botões de Controle -->
+        <Grid Grid.Row="2" 
+              Padding="20"
+              ColumnDefinitions="*,*,*"
+              ColumnSpacing="15"
+              RowSpacing="15">
+            
+            <!-- Iniciar/Pausar -->
+            <Button Grid.Column="0"
+                    x:Name="IniciarPausarButton"
+                    Text="▶️ INICIAR"
+                    Clicked="OnIniciarPausarClicked"
+                    BackgroundColor="#4CAF50"
+                    TextColor="White"
+                    FontSize="16"
+                    FontAttributes="Bold"
+                    CornerRadius="10"
+                    HeightRequest="70"/>
+
+            <!-- Registrar Interrupção -->
+            <Button Grid.Column="1"
+                    Text="⏸️ INTERRUPÇÃO"
+                    Clicked="OnInterrupcaoClicked"
+                    BackgroundColor="#FF9800"
+                    TextColor="White"
+                    FontSize="14"
+                    CornerRadius="10"
+                    HeightRequest="70"/>
+
+            <!-- Registrar Frustração -->
+            <Button Grid.Column="2"
+                    Text="😟 FRUSTRAÇÃO"
+                    Clicked="OnFrustracaoClicked"
+                    BackgroundColor="#F44336"
+                    TextColor="White"
+                    FontSize="14"
+                    CornerRadius="10"
+                    HeightRequest="70"/>
+
+        </Grid>
+
+        <!-- Botão Finalizar -->
+        <Frame Grid.Row="3" 
+               Padding="20" 
+               Margin="0"
+               CornerRadius="0"
+               BackgroundColor="#1E1E1E"
+               HasShadow="False">
+            <Button Text="🏁 FINALIZAR TESTE"
+                    Clicked="OnFinalizarClicked"
+                    BackgroundColor="#2196F3"
+                    TextColor="White"
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    CornerRadius="10"
+                    HeightRequest="60"/>
+        </Frame>
+
+    </Grid>
+</ContentPage>

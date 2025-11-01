@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp.Views.Menu.MainMenuPage"
+             Title="LUFH Cronômetro"
+             BackgroundColor="#F5F5F5">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+
+        <!-- Header -->
+        <Frame Grid.Row="0" 
+               Padding="20" 
+               Margin="0"
+               CornerRadius="0"
+               BackgroundColor="#1976D2"
+               HasShadow="True">
+            <Grid ColumnDefinitions="*,Auto">
+                <VerticalStackLayout Grid.Column="0" Spacing="5">
+                    <Label Text="Bem-vindo ao LUFH"
+                           FontSize="24"
+                           FontAttributes="Bold"
+                           TextColor="White"/>
+                    <Label x:Name="UsuarioNomeLabel"
+                           Text="Carregando..."
+                           FontSize="14"
+                           TextColor="#E3F2FD"/>
+                </VerticalStackLayout>
+
+                <!-- Botão Sair -->
+                <Button Grid.Column="1"
+                        Text="SAIR"
+                        Clicked="OnSairClicked"
+                        BackgroundColor="#F44336"
+                        TextColor="White"
+                        CornerRadius="8"
+                        WidthRequest="100"
+                        HeightRequest="45"
+                        VerticalOptions="Center"/>
+            </Grid>
+        </Frame>
+
+        <!-- Menu Cards -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="20" Spacing="15">
+
+                <!-- Seção: Gestão -->
+                <Label Text="📋 GESTÃO"
+                       FontSize="16"
+                       FontAttributes="Bold"
+                       TextColor="#666"
+                       Margin="0,10,0,5"/>
+
+                <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" ColumnSpacing="15" RowSpacing="15">
+                    
+                    <!-- Card: Cadastrar -->
+                    <Frame Grid.Row="0" Grid.Column="0"
+                           Padding="0"
+                           CornerRadius="15"
+                           HasShadow="True"
+                           BackgroundColor="White">
+                        <Grid RowDefinitions="100,Auto" BackgroundColor="Transparent">
+                            <BoxView Grid.Row="0" 
+                                     BackgroundColor="#4CAF50"
+                                     CornerRadius="15,15,0,0"/>
+                            <Label Grid.Row="0"
+                                   Text="➕"
+                                   FontSize="50"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   TextColor="White"/>
+                            <VerticalStackLayout Grid.Row="1" Padding="15" Spacing="5">
+                                <Label Text="Cadastrar"
+                                       FontSize="18"
+                                       FontAttributes="Bold"
+                                       TextColor="#333"/>
+                                <Label Text="Clientes, Produtos, Usuários e Testes"
+                                       FontSize="12"
+                                       TextColor="#666"/>
+                            </VerticalStackLayout>
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnCadastrarClicked"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                    <!-- Card: Editar -->
+                    <Frame Grid.Row="0" Grid.Column="1"
+                           Padding="0"
+                           CornerRadius="15"
+                           HasShadow="True"
+                           BackgroundColor="White">
+                        <Grid RowDefinitions="100,Auto" BackgroundColor="Transparent">
+                            <BoxView Grid.Row="0" 
+                                     BackgroundColor="#FF9800"
+                                     CornerRadius="15,15,0,0"/>
+                            <Label Grid.Row="0"
+                                   Text="✏️"
+                                   FontSize="50"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   TextColor="White"/>
+                            <VerticalStackLayout Grid.Row="1" Padding="15" Spacing="5">
+                                <Label Text="Editar"
+                                       FontSize="18"
+                                       FontAttributes="Bold"
+                                       TextColor="#333"/>
+                                <Label Text="Alterar informações cadastrais"
+                                       FontSize="12"
+                                       TextColor="#666"/>
+                            </VerticalStackLayout>
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnEditarClicked"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                    <!-- Card: Visualizar -->
+                    <Frame Grid.Row="1" Grid.Column="0"
+                           Padding="0"
+                           CornerRadius="15"
+                           HasShadow="True"
+                           BackgroundColor="White">
+                        <Grid RowDefinitions="100,Auto" BackgroundColor="Transparent">
+                            <BoxView Grid.Row="0" 
+                                     BackgroundColor="#2196F3"
+                                     CornerRadius="15,15,0,0"/>
+                            <Label Grid.Row="0"
+                                   Text="👁️"
+                                   FontSize="50"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   TextColor="White"/>
+                            <VerticalStackLayout Grid.Row="1" Padding="15" Spacing="5">
+                                <Label Text="Visualizar"
+                                       FontSize="18"
+                                       FontAttributes="Bold"
+                                       TextColor="#333"/>
+                                <Label Text="Consultar dados cadastrados"
+                                       FontSize="12"
+                                       TextColor="#666"/>
+                            </VerticalStackLayout>
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnVisualizarClicked"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                    <!-- Card: Relatórios -->
+                    <Frame Grid.Row="1" Grid.Column="1"
+                           Padding="0"
+                           CornerRadius="15"
+                           HasShadow="True"
+                           BackgroundColor="White">
+                        <Grid RowDefinitions="100,Auto" BackgroundColor="Transparent">
+                            <BoxView Grid.Row="0" 
+                                     BackgroundColor="#9C27B0"
+                                     CornerRadius="15,15,0,0"/>
+                            <Label Grid.Row="0"
+                                   Text="📊"
+                                   FontSize="50"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   TextColor="White"/>
+                            <VerticalStackLayout Grid.Row="1" Padding="15" Spacing="5">
+                                <Label Text="Relatórios"
+                                       FontSize="18"
+                                       FontAttributes="Bold"
+                                       TextColor="#333"/>
+                                <Label Text="Análises e estatísticas"
+                                       FontSize="12"
+                                       TextColor="#666"/>
+                            </VerticalStackLayout>
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnRelatoriosClicked"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                </Grid>
+
+                <!-- Seção: Testes -->
+                <Label Text="🧪 TESTES DE USABILIDADE"
+                       FontSize="16"
+                       FontAttributes="Bold"
+                       TextColor="#666"
+                       Margin="0,20,0,5"/>
+
+                <Grid ColumnDefinitions="*" RowDefinitions="Auto,Auto" RowSpacing="15">
+                    
+                    <!-- Card: Iniciar Mensuração -->
+                    <Frame Grid.Row="0"
+                           Padding="0"
+                           CornerRadius="15"
+                           HasShadow="True"
+                           BackgroundColor="White">
+                        <Grid ColumnDefinitions="Auto,*" Padding="20" ColumnSpacing="20">
+                            <Frame Grid.Column="0"
+                                   WidthRequest="80"
+                                   HeightRequest="80"
+                                   CornerRadius="40"
+                                   Padding="0"
+                                   BackgroundColor="#00BCD4"
+                                   HasShadow="False">
+                                <Label Text="▶️"
+                                       FontSize="40"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                       TextColor="White"/>
+                            </Frame>
+                            <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="5">
+                                <Label Text="Iniciar Mensuração"
+                                       FontSize="20"
+                                       FontAttributes="Bold"
+                                       TextColor="#333"/>
+                                <Label Text="Cronometrar teste de usabilidade com voluntário"
+                                       FontSize="13"
+                                       TextColor="#666"/>
+                            </VerticalStackLayout>
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnIniciarMensuracaoClicked"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                    <!-- Card: Configurar Roteiros -->
+                    <Frame Grid.Row="1"
+                           Padding="0"
+                           CornerRadius="15"
+                           HasShadow="True"
+                           BackgroundColor="White">
+                        <Grid ColumnDefinitions="Auto,*" Padding="20" ColumnSpacing="20">
+                            <Frame Grid.Column="0"
+                                   WidthRequest="80"
+                                   HeightRequest="80"
+                                   CornerRadius="40"
+                                   Padding="0"
+                                   BackgroundColor="#FF5722"
+                                   HasShadow="False">
+                                <Label Text="📝"
+                                       FontSize="40"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                       TextColor="White"/>
+                            </Frame>
+                            <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="5">
+                                <Label Text="Configurar Roteiros"
+                                       FontSize="20"
+                                       FontAttributes="Bold"
+                                       TextColor="#333"/>
+                                <Label Text="Criar e editar roteiros e tarefas dos testes"
+                                       FontSize="13"
+                                       TextColor="#666"/>
+                            </VerticalStackLayout>
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnConfigurarRoteirosClicked"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                </Grid>
+
+                <!-- Seção: Configurações -->
+                <Label Text="⚙️ SISTEMA"
+                       FontSize="16"
+                       FontAttributes="Bold"
+                       TextColor="#666"
+                       Margin="0,20,0,5"/>
+
+                <!-- Card: Configurações -->
+                <Frame Padding="20"
+                       CornerRadius="15"
+                       HasShadow="True"
+                       BackgroundColor="White">
+                    <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="15">
+                        <Label Grid.Column="0"
+                               Text="⚙️"
+                               FontSize="30"
+                               VerticalOptions="Center"/>
+                        <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="3">
+                            <Label Text="Configurações"
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   TextColor="#333"/>
+                            <Label Text="Preferências e ajustes do sistema"
+                                   FontSize="12"
+                                   TextColor="#666"/>
+                        </VerticalStackLayout>
+                        <Label Grid.Column="2"
+                               Text="›"
+                               FontSize="30"
+                               TextColor="#CCC"
+                               VerticalOptions="Center"/>
+                    </Grid>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnConfiguracoesClicked"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Footer -->
+        <Frame Grid.Row="2" 
+               Padding="15" 
+               Margin="0"
+               CornerRadius="0"
+               BackgroundColor="#EEEEEE"
+               HasShadow="False">
+            <VerticalStackLayout Spacing="3">
+                <Label Text="LUFH - Laboratório de Usabilidade, Fatores Humanos e Acessibilidade"
+                       FontSize="10"
+                       TextColor="#999"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"/>
+                <Label Text="Versão 2.0 - .NET MAUI"
+                       FontSize="9"
+                       TextColor="#BBB"
+                       HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+        </Frame>
+
+    </Grid>
+</ContentPage>

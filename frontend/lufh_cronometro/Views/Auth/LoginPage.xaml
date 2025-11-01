@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp.Views.Auth.LoginPage"
+             Title="Login"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#F0F0F0">
+
+    <ScrollView>
+        <Grid RowDefinitions="Auto,*,Auto" Padding="20">
+
+            <!-- Header com logo -->
+            <VerticalStackLayout Grid.Row="0" 
+                                Spacing="10" 
+                                Margin="0,60,0,40"
+                                HorizontalOptions="Center">
+                
+                <!-- Imagem do logo (caso tenha) -->
+                <!-- <Image Source="logo_lufh.png" 
+                       HeightRequest="80"
+                       WidthRequest="80"
+                       HorizontalOptions="Center"/> -->
+                
+                <Label Text="LUFH Cronômetro"
+                       FontSize="28"
+                       FontAttributes="Bold"
+                       TextColor="#1976D2"
+                       HorizontalOptions="Center"/>
+                
+                <Label Text="Sistema de Testes de Usabilidade"
+                       FontSize="14"
+                       TextColor="#666"
+                       HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+
+            <!-- Formulário de Login -->
+            <Frame Grid.Row="1"
+                   Padding="30"
+                   CornerRadius="15"
+                   HasShadow="True"
+                   BackgroundColor="White"
+                   VerticalOptions="Center"
+                   MaximumWidthRequest="450">
+                
+                <VerticalStackLayout Spacing="20">
+                    
+                    <Label Text="Bem-vindo de volta!"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           TextColor="#333"
+                           HorizontalOptions="Center"/>
+
+                    <!-- Email -->
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="E-mail" 
+                               FontSize="14" 
+                               TextColor="#555"
+                               FontAttributes="Bold"/>
+                        <Frame Padding="0" 
+                               CornerRadius="8" 
+                               BorderColor="#E0E0E0"
+                               HasShadow="False">
+                            <Entry x:Name="EmailEntry"
+                                   Placeholder="seu.email@exemplo.com"
+                                   Keyboard="Email"
+                                   TextColor="#333"
+                                   PlaceholderColor="#999"
+                                   BackgroundColor="Transparent"
+                                   Margin="10,0"/>
+                        </Frame>
+                    </VerticalStackLayout>
+
+                    <!-- Senha -->
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Senha" 
+                               FontSize="14" 
+                               TextColor="#555"
+                               FontAttributes="Bold"/>
+                        <Frame Padding="0" 
+                               CornerRadius="8" 
+                               BorderColor="#E0E0E0"
+                               HasShadow="False">
+                            <Entry x:Name="SenhaEntry"
+                                   Placeholder="Digite sua senha"
+                                   IsPassword="True"
+                                   TextColor="#333"
+                                   PlaceholderColor="#999"
+                                   BackgroundColor="Transparent"
+                                   Margin="10,0"/>
+                        </Frame>
+                    </VerticalStackLayout>
+
+                    <!-- Botão Entrar -->
+                    <Button Text="ENTRAR"
+                            Clicked="OnLoginClicked"
+                            BackgroundColor="#1976D2"
+                            TextColor="White"
+                            FontSize="16"
+                            FontAttributes="Bold"
+                            CornerRadius="8"
+                            HeightRequest="50"
+                            Margin="0,20,0,0"/>
+
+                    <!-- Link Esqueci Senha -->
+                    <Label Text="Esqueceu sua senha?"
+                           TextColor="#1976D2"
+                           FontSize="12"
+                           HorizontalOptions="Center"
+                           Margin="0,10,0,0">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnEsqueciSenhaClicked"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Footer -->
+            <VerticalStackLayout Grid.Row="2" 
+                                Spacing="5"
+                                Margin="0,20,0,20">
+                <Label Text="LUFH - Laboratório de Usabilidade, Fatores Humanos e Acessibilidade"
+                       FontSize="11"
+                       TextColor="#999"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"/>
+                <Label Text="Versão 2.0 - .NET MAUI"
+                       FontSize="10"
+                       TextColor="#BBB"
+                       HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+
+        </Grid>
+    </ScrollView>
+</ContentPage>

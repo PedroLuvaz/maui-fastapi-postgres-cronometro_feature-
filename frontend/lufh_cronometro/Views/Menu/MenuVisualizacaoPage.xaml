@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp.Views.Menu.MenuVisualizacaoPage"
+             Title="Visualizar"
+             BackgroundColor="#F5F5F5">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <!-- Header -->
+            <Frame Padding="20" 
+                   CornerRadius="10" 
+                   BackgroundColor="White"
+                   HasShadow="True">
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="👁️ Visualização"
+                           FontSize="24"
+                           FontAttributes="Bold"
+                           TextColor="#2196F3"/>
+                    <Label Text="Consultar dados cadastrados"
+                           FontSize="14"
+                           TextColor="#666"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Lista de Opções -->
+            <VerticalStackLayout Spacing="15">
+
+                <!-- Clientes -->
+                <Frame Padding="20"
+                       CornerRadius="10"
+                       HasShadow="True"
+                       BackgroundColor="White">
+                    <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="15">
+                        <Label Grid.Column="0"
+                               Text="👤"
+                               FontSize="30"
+                               VerticalOptions="Center"/>
+                        <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="3">
+                            <Label Text="Clientes"
+                                   FontSize="18"
+                                   FontAttributes="Bold"
+                                   TextColor="#333"/>
+                            <Label Text="Ver lista de clientes"
+                                   FontSize="12"
+                                   TextColor="#666"/>
+                        </VerticalStackLayout>
+                        <Label Grid.Column="2"
+                               Text="›"
+                               FontSize="30"
+                               TextColor="#2196F3"
+                               VerticalOptions="Center"/>
+                    </Grid>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnVisualizarClientesClicked"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+                <!-- Produtos -->
+                <Frame Padding="20"
+                       CornerRadius="10"
+                       HasShadow="True"
+                       BackgroundColor="White">
+                    <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="15">
+                        <Label Grid.Column="0"
+                               Text="📦"
+                               FontSize="30"
+                               VerticalOptions="Center"/>
+                        <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="3">
+                            <Label Text="Produtos"
+                                   FontSize="18"
+                                   FontAttributes="Bold"
+                                   TextColor="#333"/>
+                            <Label Text="Ver lista de produtos"
+                                   FontSize="12"
+                                   TextColor="#666"/>
+                        </VerticalStackLayout>
+                        <Label Grid.Column="2"
+                               Text="›"
+                               FontSize="30"
+                               TextColor="#2196F3"
+                               VerticalOptions="Center"/>
+                    </Grid>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnVisualizarProdutosClicked"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+                <!-- Usuários -->
+                <Frame Padding="20"
+                       CornerRadius="10"
+                       HasShadow="True"
+                       BackgroundColor="White">
+                    <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="15">
+                        <Label Grid.Column="0"
+                               Text="👥"
+                               FontSize="30"
+                               VerticalOptions="Center"/>
+                        <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="3">
+                            <Label Text="Usuários"
+                                   FontSize="18"
+                                   FontAttributes="Bold"
+                                   TextColor="#333"/>
+                            <Label Text="Ver usuários do sistema"
+                                   FontSize="12"
+                                   TextColor="#666"/>
+                        </VerticalStackLayout>
+                        <Label Grid.Column="2"
+                               Text="›"
+                               FontSize="30"
+                               TextColor="#2196F3"
+                               VerticalOptions="Center"/>
+                    </Grid>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnVisualizarUsuariosClicked"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+                <!-- Testes -->
+                <Frame Padding="20"
+                       CornerRadius="10"
+                       HasShadow="True"
+                       BackgroundColor="White">
+                    <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="15">
+                        <Label Grid.Column="0"
+                               Text="🧪"
+                               FontSize="30"
+                               VerticalOptions="Center"/>
+                        <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="3">
+                            <Label Text="Testes"
+                                   FontSize="18"
+                                   FontAttributes="Bold"
+                                   TextColor="#333"/>
+                            <Label Text="Ver testes cadastrados"
+                                   FontSize="12"
+                                   TextColor="#666"/>
+                        </VerticalStackLayout>
+                        <Label Grid.Column="2"
+                               Text="›"
+                               FontSize="30"
+                               TextColor="#2196F3"
+                               VerticalOptions="Center"/>
+                    </Grid>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnVisualizarTestesClicked"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
