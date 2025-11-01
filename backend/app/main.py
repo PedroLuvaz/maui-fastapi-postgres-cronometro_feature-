@@ -2,7 +2,6 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.models.database import Base, engine
 from app.models.models import Alimento  # Import ANTES do create_all
-from app.routers import alimentos
 
 print("🚀 Iniciando aplicação FastAPI...")
 

@@ -1,0 +1,31 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:CadastroAlimentosMaui.ViewModels"
+             x:Class="CadastroAlimentosMaui.Views.AlimentosPage"
+             Title="Cadastro de Alimentos">
+
+    <ContentPage.BindingContext>
+        <vm:AlimentosViewModel />
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout Padding="20" Spacing="10">
+        <Label Text="Nome" />
+        <Entry Text="{Binding Nome}" Placeholder="Ex: Maçã" />
+        <Label Text="Calorias" />
+        <Entry Text="{Binding Calorias}" Keyboard="Numeric" Placeholder="Ex: 52" />
+        <Button Text="Salvar" Command="{Binding SalvarCommand}" />
+        <Label Text="Alimentos" FontAttributes="Bold" Margin="0,10,0,0" />
+        <CollectionView ItemsSource="{Binding Alimentos}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="*,Auto" Padding="10">
+                        <Label Text="{Binding Nome}" Grid.Column="0" VerticalOptions="Center"/>
+                        <Button Text="Excluir" Grid.Column="1"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type vm:AlimentosViewModel}}, Path=ExcluirCommand}"
+                                CommandParameter="{Binding .}"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>
